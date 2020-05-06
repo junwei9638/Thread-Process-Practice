@@ -1,7 +1,7 @@
 import threading
 import time
 from queue import Queue
-
+import multiprocessing as mp
 
 
 def BubbleSort( A ):
@@ -11,89 +11,90 @@ def BubbleSort( A ):
             if A[i] > A[j]:
                 A[i], A[j] = A[j], A[i]
                 
-def MergeSort( A ):
-    n = len( A )
-    _MergeSort( A, 0, n - 1 )
-
-
-def _MergeSort( A, p, r ):
-    if p < r:
-        q = ( p + r ) // 2
-        _MergeSort( A, p, q )
-        _MergeSort( A, q + 1, r )
-        Merge( A, p, q, r )
-
-
-def Merge( A, p, q, r ):
-    n1 = q - p + 1
-    n2 = r - q
-    
-    L = []
-    R = []
-    for i in range( n1 ):
-        L.append( A[p + i] )
-        
-    for j in range( n2 ):
-        R.append( A[q + j + 1] )
-        
-    i = j = 0
-    for k in range( p, r + 1 ):
-        if i < n1 and j < n2:
-            if L[i] <= R[j]:
-                A[k] = L[i]
-                i += 1
-            else:
-                A[k] = R[j]
-                j += 1
-        elif i < n1 and j >= n2:
-            A[k] = L[i]
-            i += 1
-        else:
-            A[k] = R[j]
-            j += 1
             
-def ListMerge( num, intList ):
-    print( intList )
-    for _ in range( num -1 ):
-        pop = intList.pop(0) + intList.pop(0)
-        MergeSort( pop )
-        intList.append( pop )
-        print( intList )
+def ListMerge( intList ):
+    L = intList.pop(0)
+    R = intList.pop(0)
+    temp = []
+    while len(L) > 0 or len(R) > 0:
+        if( len(L) == 0  ):
+            temp.append( R.pop(0) )
+        elif( len(R) == 0  ):
+            temp.append( L.pop(0) )
+        elif( L[0] < R[0]  ):
+            temp.append( L.pop(0) )
+        elif( L[0] > R[0]  ):
+            temp.append( R.pop(0) )
+        elif( L[0] == R[0]  ):
+            temp.append( L.pop(0) )
+            temp.append( R.pop(0) )
+
     
-            
-            
-    
-                
-                
+    intList.append( temp )
+                           
 def CutArray( num, data, intList ):
    
-    j  = 0
     cutLength = int( len(data) / num )
     
     for i in range(num):
         temp = []
         for _ in range(cutLength):
-            
             temp.append( data.pop(0) )
             
         intList.append( temp )
         
             
-def Task2( intList ):
-    a = 1
+def Task2( number, data, intList ):
+    threadGroup = []
+    CutArray( number, data, intList )
+    for i in  range( number ):
+        thread = threading.Thread( target = BubbleSort, args= (intList[i],) )
+        thread.start()
+        threadGroup.append( thread )
     
-def Task3( intList ):
-    a = 1
+    for thread in threadGroup :
+        thread.join()
+    
+    
+    for i in range( number - 1 ):
+        thread = threading.Thread( target = ListMerge, args=  (intList, ) )
+        thread.start()
+        threadGroup.append( thread )
+        
+    for thread in threadGroup :
+        thread.join()
+        
+
+def Task3( number, data, intList ):
+    processGroup = []
+    CutArray( number, data, intList )
+    for i in  range( number ):
+        process = mp.Process( target = BubbleSort, args= (intList[i],) )
+        process.start()
+        processGroup.append( process )
+    
+    for process in processGroup :
+        process.join()
+    
+    
+    for i in range( number - 1 ):
+        process = mp.Process( target = ListMerge, args=  (intList, ) )
+        process.start()
+        processGroup.append( process )
+        
+    for process in processGroup :
+        process.join()
+    
+    
     
     
 def Task4( number, data, intList ):
-    print( data )
     CutArray( number, data, intList )
     for i in range( len(intList) ):
         BubbleSort( intList[i] )
     
-    ListMerge( number, intList )
-
+    for _ in range( number -1 ):
+        ListMerge( intList )
 
 def main():
     
@@ -113,21 +114,23 @@ def main():
         
         if task == 1:
             BubbleSort( data )
+            print( intList )
             
         elif task == 2:
             number = int(input('請輸入份數:\n'))
-            CutArray( number, data, intList )
-            Task2( intList )
-            
-            
+            Task2( number, data, intList )
+            print( intList )
+ 
         elif task == 3:
             number = int(input('請輸入份數:\n'))
-            CutArray( number, data, intList )
+            Task3( number, data, intList )
+            print( intList )
 
             
-        else:
+        elif task == 4:
             number = int(input('請輸入份數:\n'))
             Task4( number, data, intList )
+            print( intList )
             
         endTime = time.time()
         print( 'Sort Time = ', endTime - startTime, '\n' )
