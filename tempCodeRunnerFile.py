@@ -1,1 +1,0 @@
-L = intList.pop(0)
