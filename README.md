@@ -1,12 +1,12 @@
 # Thread-Process-Practice For OS Project1
 開發平台 : MacBook Pro (Retina, 13-inch, Early 2015)
-	        CPU : 2.7 GHz Dual-Core Intel Core i5
-	        Memory : 8 GB 1867 MHz DDR3
-	        Graphics : Intel Iris Graphics 6100 1536 MB
-	        Storage : 256G SSD
+	CPU : 2.7 GHz Dual-Core Intel Core i5
+	Memory : 8 GB 1867 MHz DDR3
+	Graphics : Intel Iris Graphics 6100 1536 MB
+	Storage : 256G SSD
 
 開發環境 : MacOs Catalina 
-	        IDE : Visual Studio Code
+	IDE : Visual Studio Code
 
 程式語言 : Python
 
