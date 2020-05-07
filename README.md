@@ -1,6 +1,6 @@
 # Thread-Process-Practice For OS Project1
 開發平台 : MacBook Pro (Retina, 13-inch, Early 2015)   
-	&emsp;CPU : 2.7 GHz Dual-Core Intel Core i5   
+	&emsp;&emsp;&emsp;CPU : 2.7 GHz Dual-Core Intel Core i5   
 	Memory : 8 GB 1867 MHz DDR3   
 	Graphics : Intel Iris Graphics 6100 1536 MB   
 	Storage : 256G SSD   
