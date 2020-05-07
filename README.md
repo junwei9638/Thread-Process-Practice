@@ -64,15 +64,24 @@ Main:
 	
 
 程式設計Data Structure :   
-data = []  
-intList = []  
-ProcessList = mp.Manager().list()  
-threadGroup = []  
-thread = threading.Thread( target = BubbleSort, args= (intList[i],) )  
-processGroup = []  
-tempQueue = mp.Queue()  
-process = mp.Process( target = BubbleSortForProcess, args= ( ProcessList[i], tempQueue ) )  
+&emsp;data = []  
+&emsp;intList = []  
+&emsp;ProcessList = mp.Manager().list()  
+&emsp;threadGroup = []  
+&emsp;thread = threading.Thread( target = BubbleSort, args= (intList[i],) )  
+&emsp;processGroup = []  
+&emsp;tempQueue = mp.Queue()  
+&emsp;process = mp.Process( target = BubbleSortForProcess, args= ( ProcessList[i], tempQueue ) )  
 
 
 程式未完成功能：  
 無    
+
+
+
+              | Task1  | Task2 | Task3 | Task4
+--------------|:------:|--------:| ------:|------------------------  
+1w            |  7.12  | 1.60    |  3.17  | 1.95  
+10w           | 602.64 |  10.88  |  11.6  | 12.26  
+50w           | 30140  |  260.5  | 307.97 | 318.94   
+100w          | 68435  | 1432.15 |  1060  | 1531.84   
