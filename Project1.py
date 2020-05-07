@@ -105,7 +105,6 @@ def Task2( number, data, intList ):
     
     while( len(intList ) != 1 ):
         ListMerge( intList )
-    print(len(intList))
 
 def Task3( number, data, ProcessList ):
     with mp.Manager() as Manager:
