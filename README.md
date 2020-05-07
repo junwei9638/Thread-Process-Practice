@@ -31,48 +31,48 @@ Main:
 &emsp;4.印出process time   
 
 任務二：
-輸入要切幾份
-進入CutArray切input data，切成需要的份數
-宣告thread，看data有幾個thread就有幾份
-執行每個thread ->進入BubbleSort去做排序
-執行每個thread ->進入ListMerge去做合併
-等待每個thread結束
-merge完結果寫入process time
-印出process time
+&emsp;1.輸入要切幾份    
+&emsp;2.進入CutArray切input data，切成需要的份數  
+&emsp;3.宣告thread，看data有幾個thread就有幾份  
+&emsp;4.執行每個thread ->進入BubbleSort去做排序  
+&emsp;5.執行每個thread ->進入ListMerge去做合併  
+&emsp;6.等待每個thread結束  
+&emsp;7.merge完結果寫入process time      
+&emsp;8.印出process time  
 
 任務三：
-&emsp;1.使用with mp.Manager as Manager() 的process管理器. 
-&emsp;2.設立ProcessList來共享data. 
-&emsp;3.輸入要切幾份. 
-&emsp;4.進入CutArrayForProcess切input data，切成需要的份數放入ProcessList. 
-&emsp;5.宣告Multiprocess，看data有幾個process就有幾份. 
-&emsp;6.執行每個process ->進入BubbleSortForProcess去做排序. 
-&emsp;7.執行每個process ->進入ListMergeForProcess去做合併. 
-&emsp;8.在ListMerge內把merge結果用Multiprocess.Queue()存起來當作share memory的地方才能讓CPU之間進行交流. 
-&emsp;9.把queue裡的結果存回ProcessList內. 
-&emsp;10.等待每個process結束. 
-&emsp;11.merge完結果寫入process time. 
-&emsp;12.印出process time. 
+&emsp;1.使用with mp.Manager as Manager() 的process管理器   
+&emsp;2.設立ProcessList來共享data   
+&emsp;3.輸入要切幾份  
+&emsp;4.進入CutArrayForProcess切input data，切成需要的份數放入ProcessList  
+&emsp;5.宣告Multiprocess，看data有幾個process就有幾份  
+&emsp;6.執行每個process ->進入BubbleSortForProcess去做排序  
+&emsp;7.執行每個process ->進入ListMergeForProcess去做合併  
+&emsp;8.在ListMerge內把merge結果用Multiprocess.Queue()存起來當作share memory的地方才能讓CPU之間進行交流  
+&emsp;9.把queue裡的結果存回ProcessList內  
+&emsp;10.等待每個process結束  
+&emsp;11.merge完結果寫入process time  
+&emsp;12.印出process time  
 
 任務四：   
-輸入要切幾份. 
-進入CutArray切input data，切成需要的份數. 
-每份data進行bubble sort. 
-進入ListMerge去做合併. 
-merge完結果寫入process time. 
-印出process time. 
+&emsp;1.輸入要切幾份  
+&emsp;2.進入CutArray切input data，切成需要的份數  
+&emsp;3.每份data進行bubble sort  
+&emsp;4.進入ListMerge去做合併  
+&emsp;5.merge完結果寫入process time  
+&emsp;6.印出process time  
 	
 
 程式設計Data Structure :   
-data = []. 
-intList = []. 
-ProcessList = mp.Manager().list(). 
-threadGroup = []. 
-thread = threading.Thread( target = BubbleSort, args= (intList[i],) ). 
-processGroup = []. 
-tempQueue = mp.Queue(). 
-process = mp.Process( target = BubbleSortForProcess, args= ( ProcessList[i], tempQueue ) ). 
+data = []  
+intList = []  
+ProcessList = mp.Manager().list()  
+threadGroup = []  
+thread = threading.Thread( target = BubbleSort, args= (intList[i],) )  
+processGroup = []  
+tempQueue = mp.Queue()  
+process = mp.Process( target = BubbleSortForProcess, args= ( ProcessList[i], tempQueue ) )  
 
 
 程式未完成功能：  
-無. 
+無    
