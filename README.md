@@ -94,3 +94,7 @@ GIL(Global Interpreter Lock)影響，在某些case之下效率未必能比普通
 |10w          | 602.64 |  10.88  | 11.6  | 12.26 |
 |50w          | 30140|  260.5  | 307.97 | 318.94 |
 |100w         | 68435| 1432.15 | 1060  | 1531.84 |
+
+
+![Aaron Swartz](https://github.com/runruncar0744/Thread-Process-Practice/blob/master/chart.png)
+
