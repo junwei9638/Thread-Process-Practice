@@ -5,10 +5,10 @@
 &emsp;&emsp;&emsp;&emsp;&emsp;Graphics : Intel Iris Graphics 6100 1536 MB   
 &emsp;&emsp;&emsp;&emsp;&emsp;Storage : 256G SSD   
 
-開發環境 : MacOs Catalina 
-&emsp;&emsp;&emsp;&emsp;&emsp;IDE : Visual Studio Code
+開發環境 : MacOs Catalina  
+&emsp;&emsp;&emsp;&emsp;&emsp;IDE : Visual Studio Code  
 
-程式語言 : Python
+程式語言 : Python  
 
 程式設計功能 :  
 能夠input並output檔案
