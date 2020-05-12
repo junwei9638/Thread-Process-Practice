@@ -131,7 +131,8 @@ def Task3( number, data, ProcessList ):
         for process in processGroup :
             process.join()
     
-    
+        while( len( ProcessList ) != 1 ):
+            ListMerge( ProcessList )
     
     
 def Task4( number, data, intList ):
